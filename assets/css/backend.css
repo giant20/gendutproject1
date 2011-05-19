@@ -1,0 +1,431 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* =Layout
+
+------------------------------------------------------------------------------------------------*/
+body {
+	text-align: justify;
+	font-family:  Tahoma, Arial, Helvetica, sans-serif;
+	color: #504f4f;
+	font-size: .8em;
+}
+a {
+	text-decoration:none;
+	color: #504f4f;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
+#masthead, #main, #footer{
+	clear:both;
+	float:left;
+	margin:0 10%;
+	width:80%;
+}
+
+#navigation{
+	/*background-color:#FFCB2D;*/
+	clear:both;
+	float:left;
+	width:100%;
+}
+
+/* =Layout Masthead
+------------------------------------------------------------------------------------------------*/
+#masthead{
+	background:url(../images/logo.png) no-repeat;
+	height:100px;	
+}
+
+#masthead h1{
+	display:none;
+}
+
+/* =Layout Navigation
+------------------------------------------------------------------------------------------------*/
+#menu_tab{
+	font-family:  Tahoma, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	font-weight: bold;
+	background:#3067c1;
+	float:left;
+	list-style:none;
+	margin:0;
+	padding:5px 10% 0 10%;
+	width:80%;
+}
+
+#menu_tab li{
+	float:left;
+}
+
+#menu_tab a{
+	background-color:#3067c1;
+	color:#FFFFFF;
+	display:block;
+	float:left;	
+	margin:0 5px 0 0;
+	padding:7px 8px;	
+	text-decoration:none;
+}
+
+#menu_tab a:hover, 
+body#dashboard  #tab_dashboard a,
+body#daftar #tab_daftar a,
+body#cetak #tab_cetak a,
+body#konten #tab_konten a,
+body#options #tab_op a,
+body#upload #tab_up a,
+body#user #tab_user a{
+	background-color:#628cd1;
+	color:#FFFFFF;
+	padding-bottom: 7px;		
+}
+
+
+
+/* =Layout Main
+------------------------------------------------------------------------------------------------*/
+#main{
+	padding:10px 0;
+	font-family:  Tahoma, Arial, Helvetica, sans-serif;
+}
+
+/* =Layout Footer
+------------------------------------------------------------------------------------------------*/
+#footer{
+	border-top:1px solid #628cd1;
+	font-size:smaller;
+	font-weight:bold;
+	padding-top:5px;
+	text-align:center;	
+}
+
+/* =Table
+------------------------------------------------------------------------------------------------*/
+table{
+	font-size:90%;
+}
+
+table th{
+	font-weight:bold;
+	background:#3067c1;
+	color:#fff;
+}
+
+table td, table th {
+	text-align:left;
+	padding:4px 10px 4px 10px;
+}
+
+.zebra {
+	background:#EFF5FF;
+}
+
+/* =Form
+------------------------------------------------------------------------------------------------*/
+
+/*---------------daftar_form------------------*/
+.form_daftar{
+width: 580px;
+padding:5px 10px 10px 20px;
+margin: 0 0 0 0;
+}
+.bag{
+padding:5px 5px 5px 5px;
+margin: 0 0 0 0;
+}
+.form_row{
+width:580px;
+clear:both;
+padding:1px 0 1px 0;
+}
+.form_row_konten{
+width:700px;
+clear:both;
+padding:1px 0 1px 0;
+}
+.form_search{
+width:600px;
+clear:both;
+padding:1px 0 1px 0;
+}
+.row_nilai{
+font-family:  Tahoma, Arial, Helvetica, sans-serif;
+padding: 1px 2px 0 2px;
+margin-top:-4px;
+background-color:#fff;
+float:left;
+border:1px #DFDFDF solid;
+}
+.form_subtitle{
+width:570px;
+margin:0px;
+padding:5px 0px 0px 0px;
+font-size:14px;
+text-decoration:underline;
+}
+
+.bottom_form{
+padding:10px 0px 2px 0px;
+}
+p.note{
+line-height: 0.7em;
+padding:3px 0px 3px 0px;
+font-size:10px;
+}
+label.field_konten{
+width:100px;
+height:10px;
+float:left;
+text-align:right;
+padding:3px 5px 0 0;
+}
+
+
+label.field{
+width:235px;
+height:10px;
+float:left;
+text-align:right;
+padding:3px 5px 0 0;
+}
+
+label.field2{
+width:135px;
+height:10px;
+float:left;
+text-align:left;
+padding:0px 5px 0 0;
+}
+
+
+
+em{
+font-style:italic;
+font-size:11px;
+
+}
+input{
+margin: 1px 0px 1px 0px;
+font-family:  Tahoma, Arial, Helvetica, sans-serif;
+padding: 3px 2px 2px 2px;
+width:280px;
+height:18px;
+background-color:#fff;
+border:1px #DFDFDF solid;
+font-size:90%;
+}
+
+select{
+font-family:Tahoma, Arial, Helvetica, sans-serif;
+padding: 2px 2px 2px 2px;
+margin: 1px 0px 1px 0px;
+width:253px;
+height:24px;
+background-color:#fff;
+border:1px #DFDFDF solid;
+font-size:90%;
+}
+textarea{
+width:280px;
+height:50px;
+padding: 3px 2px 2px 2px;
+font-family:  Tahoma, Arial, Helvetica, sans-serif;
+font-size:12px;
+background-color:#fff;
+border:1px #DFDFDF solid;
+margin-bottom:2px;
+font-size:90%;
+}
+
+textarea.konten{
+font-size:90%;
+width:500px;
+height:200px;
+padding: 3px 2px 2px 2px;
+font-family:  Tahoma, Arial, Helvetica, sans-serif;
+font-size:12px;
+background-color:#fff;
+border:1px #DFDFDF solid;
+margin-bottom:-5px;
+}
+button.submit{ 
+	text-decoration:none; 
+	margin: 0 3px 0 3px;
+	cursor:pointer; 
+	padding:0 0 2px 0; 
+	height:28px;
+	font-family:  Tahoma, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:#3067c1 solid 1px;
+	width:70px;
+	text-align: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	background: #3067c1;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	}
+input.submit{
+	text-decoration:none; 
+	cursor:pointer; 
+	padding:0 0 2px 0; 
+	height:28px;
+	font-family:  Tahoma, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:#3067c1 solid 1px;
+	width:70px;
+	text-align: center;
+	font-weight: bold;
+	color: #FFFFFF;
+	background: #3067c1;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+input.submit:hover{
+	background: #628cd1;
+	border:#628cd1 solid 1px;
+}
+
+.submit a :hover {
+	text-decoration:none; 
+}
+
+button.submit:hover{
+	text-decoration:underline; 
+	background: #628cd1;
+	border:#628cd1 solid 1px;
+}
+
+.tombol_bawah{
+	padding:10px 100px 0px 150px;
+}
+.error{
+	width:300px;
+	margin:2.5px;
+	padding:2px 5px 2px 5px; 
+	font-size:11px;
+	border:#DF0000 solid 1px;
+	text-align: center;
+	font-weight: bold;
+	color: #DF0000;
+	background: #FFDFDF;
+}
+/* =Link
+------------------------------------------------------------------------------------------------*/
+a.add, 
+a.update, 
+a.delete,
+a.back,
+a.next,
+a.excel,
+a.pdf,
+a.aktif,
+a.nonaktif{
+	font-size: 9pt;
+	color:#3067c1;
+	font-weight:bold;
+	padding-left:20px;
+	text-decoration: none;
+}
+
+input.cetak{
+	width:65px;
+	font-size: 9pt;
+	color:#3067c1;
+	font-weight:bold;
+	border:none;
+	text-decoration: none;
+	background:url(../images/14.png) left center no-repeat;
+}
+
+input.cetak:hover{
+	color:#628cd1;
+	cursor:pointer;
+}
+
+a.add:hover,
+a.update:hover,
+a.delete:hover,
+a.back:hover,
+a.next:hover,
+a.excel:hover,
+a.pdf:hover,
+a.aktif:hover,
+a.nonaktif:hover{
+	color:#628cd1;
+}
+
+a.add {
+	background:url(../images/2.png) left center no-repeat;
+}
+a.update {
+	background:url(../images/12.png) left center no-repeat;
+}
+a.delete {
+	background:url(../images/7.png) left center no-repeat;
+}
+a.next {
+	background:url(../images/9.png) left center no-repeat;
+}
+a.back {
+	background:url(../images/10.png) left center no-repeat;
+}
+a.excel {
+	background:url(../images/13.png) left center no-repeat;
+}
+a.pdf {
+	background:url(../images/14.png) left center no-repeat;
+}
+a.aktif {
+	background:url(../images/8.png) left center no-repeat;
+}
+a.nonaktif {
+	background:url(../images/1.png) left center no-repeat;
+}
+
+p#bottom_link{
+	margin-top:10px;
+}
+
+/* =Pagination
+------------------------------------------------------------------------------------------------*/
+#pagination{
+	margin-bottom:10px;
+}
+
+#pagination a{
+	text-decoration:none;
+}
+
+#pagination a:hover{
+	font-weight:bold;
+}
+
+p strong {
+	font-weight:bold;
+}
+
+/* =Misc
+------------------------------------------------------------------------------------------------*/
+h2{
+	border-bottom:1px solid #628cd1;
+	font-size:1.5em;
+	margin-bottom:10px;
+}
+
+p.message{
+	color:#900;
+	font-weight:bold;
+	background-color:#6F6;
+	padding:5px;
+	border:1px solid #090;
+}
