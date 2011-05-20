@@ -209,16 +209,7 @@ font-style:italic;
 font-size:11px;
 
 }
-input{
-margin: 1px 0px 1px 0px;
-font-family:  Tahoma, Arial, Helvetica, sans-serif;
-padding: 3px 2px 2px 2px;
-width:280px;
-height:18px;
-background-color:#fff;
-border:1px #DFDFDF solid;
-font-size:90%;
-}
+
 
 select{
 font-family:Tahoma, Arial, Helvetica, sans-serif;
