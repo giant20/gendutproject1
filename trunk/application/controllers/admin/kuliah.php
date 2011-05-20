@@ -82,20 +82,21 @@ function add() {
 				$id = $this->uri->segment(4);
 				$data['title'] = 'Edit Mahasiswa';
 				$data['main_view'] = 'admin/kuliah/add';
+				//$data['pesan'] = '';
 				$data['query'] = $this->Matkul_model->getMatkul('list',$id);
 				$data['row'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id);
 				$this->load->view('admin/index',$data);
 			}
 			else {
-
+					$id = $this->uri->segment(4);
 					foreach ($this->input->post('kode') as $row) { 
 					if (!$this->input->post('admin/kelas'.$row) && !$row==''){	
-					echo error;
-					
+					//$this->session->set_flashdata('item', 'data kosong');
+						redirect('admin/kuliah/add/'.$id);		
 					}
 				else {
 					$kelas = $this->input->post('kelas'.$row);
-									$id = $this->uri->segment(5);							
+									$id = $this->uri->segment(4);							
 				$data=array('id_mahasiswa'=> $id,
 								'id_matkul'=> $row,
 							'kelas'=> $kelas);
