@@ -90,8 +90,8 @@ function add() {
 			else {
 					$id = $this->uri->segment(4);
 					foreach ($this->input->post('kode') as $row) { 
-					if (!$this->input->post('admin/kelas'.$row) && !$row==''){	
-					//$this->session->set_flashdata('item', 'data kosong');
+					if (!$this->input->post('kelas'.$row) && !$row==''){	
+					$this->session->set_flashdata('item', 'data kosong');
 						redirect('admin/kuliah/add/'.$id);		
 					}
 				else {
