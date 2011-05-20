@@ -16,7 +16,8 @@
     <td><?php echo $row['nama_matkul']?></td>
     <td><?php echo $row['kelas']?></td>
 
-	<td><a href="<?php echo base_url().'admin/kuliah/edit/'.$row['id_kuliah']?>">Edit</a></td></tr>
+	<td><a href="<?php echo base_url().'admin/kuliah/edit/'.$row['id_kuliah'].'/'.$nama->id_mahasiswa;?>">Edit</a> | 
+	<a href="<?php echo base_url().'admin/kuliah/delete/'.$row['id_kuliah'].'/'.$nama->id_mahasiswa;?>">Delete</a></td></tr>
 	<?php $no++;}?>
 	</table>
 			

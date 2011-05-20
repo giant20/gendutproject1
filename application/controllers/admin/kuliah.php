@@ -50,7 +50,7 @@ function view() {
 }
 function edit() {
 			
-						
+			$id_mahasiswa = $this->uri->segment(5);			
 			$this->form_validation->set_rules('id_matkul','kode','required');
 			$this->form_validation->set_rules('kelas','kelas','required');
 
@@ -59,17 +59,18 @@ function edit() {
 				$data['title'] = 'Edit Mahasiswa';
 				$data['main_view'] = 'admin/kuliah/edit';
 				$data['query'] = $this->Matkul_model->getMatkul('list',$id);
+				$data['nama'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id_mahasiswa);
 				$data['row'] = $this->Kuliah_model->getKuliah('by_id',$id,FALSE);
 				$this->load->view('admin/index',$data);
 			}
 			else {
-			
-				$id = $this->uri->segment(5);
+				$id_mahasiswa = $this->uri->segment(5);		
+				$id = $this->uri->segment(4);
 				$data=array('id_matkul'=> $this->input->post('id_matkul'),
 							'kelas'=> $this->input->post('kelas'));
 							
 						$this->Kuliah_model->editKuliah($id,$data);
-						redirect('admin/kuliah/view/'.$id);
+						redirect('admin/kuliah/view/'.$id_mahasiswa);
 				}
 			}
 			
@@ -90,11 +91,11 @@ function add() {
 			else {
 					$id = $this->uri->segment(4);
 					foreach ($this->input->post('kode') as $row) { 
-					if (!$this->input->post('kelas'.$row) && !$row==''){	
-					$this->session->set_flashdata('item', 'data kosong');
+					/* if (!$this->input->post('kelas'.$row) && !$row==''){	
+					//$this->session->set_flashdata('item', 'data kosong');
 						redirect('admin/kuliah/add/'.$id);		
-					}
-				else {
+					}*/
+				//else {
 					$kelas = $this->input->post('kelas'.$row);
 									$id = $this->uri->segment(4);							
 				$data=array('id_mahasiswa'=> $id,
@@ -110,8 +111,19 @@ function add() {
 			
 				
 				redirect('admin/kuliah/view/'.$id);
-				}}
-			}
+				//}
+				}
+	}
+					
+
+					
+		function delete() {
+				$id_mhs = $this->uri->segment(5);
+				$id = $this->uri->segment(4);
+				$this->Kuliah_model->deleteKuliah($id);
+				redirect('admin/kuliah/view/'.$id_mhs);
+	}
+					
 					
 }
 
