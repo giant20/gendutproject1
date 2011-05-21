@@ -91,4 +91,19 @@ return form_dropdown('status',$options,$selected);
 }
 
 
+function namaSemDropdown($selected=FALSE) {
+
+$options = array(
+                  'Semester I'  => 'Semester I',
+                  'Semester II'    => 'Semester II',
+				  'Semester III'    => 'Semester III',
+				  'Semester IV'    => 'Semester IV',
+				  'Semester V'    => 'Semester V',
+				  'Semester VI'    => 'Semester VI',
+				  'Semester VII'    => 'Semester VII',
+				  'Semester VIII'    => 'Semester VIII',
+                  
+                );	
+return form_dropdown('status',$options,$selected);
+}
 

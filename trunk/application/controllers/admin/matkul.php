@@ -6,7 +6,7 @@ class Matkul extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('admin/Matkul_model');
-		
+		$this->load->helper('bantuan_helper');
 			if(!$this->session->userdata('status') && !$this->session->userdata('username') ){
 			redirect('home');
 		}

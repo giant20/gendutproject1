@@ -11,7 +11,21 @@
     <td>:</td>
     <td><?php echo form_error('nama_matkul'); ?> <input type="text" name="nama_matkul" id="nama_matkul" value="<?php echo set_value('nama_matkul');?>" ></td>
   </tr>
-
+<tr>
+    <td>Nama Semester</td>
+    <td>:</td>
+    <td><?php echo form_error('nama_matkul'); ?><?php echo namaSemDropdown(); ?></td>
+  </tr>
+  <tr>
+    <td>Semester</td>
+    <td>:</td>
+    <td><?php echo form_error('nama_matkul'); ?> <?php echo semDropdown(); ?></td>
+  </tr>
+  <tr>
+    <td>Tahun</td>
+    <td>:</td>
+    <td><?php echo form_error('nama_matkul'); ?> <?php echo tahunDropdown(); ?></td>
+  </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
