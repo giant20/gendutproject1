@@ -1,12 +1,12 @@
 <h1>Data Mata Kuliah</h1>
 <a href="<?php echo base_url().'admin/matkul/add'?>">Tambah</a><br />
 <br />
-<table width="500" border="1" cellpadding="1">
-<tr><td>No</td><td>Kode Mata Kuliah</td><td>Nama Mata kuliah</td><td>Aksi</td></tr>
+<table width="500" border="0" cellpadding="0" cellspacing="0">
+<tr><th>No</th><th>Kode Mata Kuliah</th><th>Nama Mata kuliah</th><th>Aksi</th></tr>
 <?php $no=1+$urutan;?>
 <?php foreach ($query as $row){?>
 
-<tr>
+<tr class="<?php if ($no %2 == 0) echo 'zebra';?>">
 	<td><?php echo $no?></td>
 	<td><?php echo $row['kode_matkul']?></td>
 	<td><?php echo $row['nama_matkul']?></td>

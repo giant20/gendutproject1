@@ -2,8 +2,8 @@
 
 <a href="<?php echo base_url().'admin/mahasiswa/add'?>">Tambah</a><br />
 <br />
-<table width="800" border="1" cellpadding="1">
-<tr><td width="20">No</td><td width="100">No Mahasiswa</td><td width="100" >Nama Siswa</td><td>Username</td><td width="100">Tanggal Lahir</td><td width="200">Alamat</td><td width="100">Status</td><td width="100">Aksi</td></tr>
+<table width="800" border="0" cellpadding="0" cellspacing="0">
+<tr><th width="20">No</th><th width="100">No Mahasiswa</th><th width="100" >Nama Siswa</th><th>Username</th><th width="100">Tanggal Lahir</th><th width="200">Alamat</th><th width="100">Status</th><th width="100">Aksi</th></tr>
 <?php $no=1+$urutan;?>
 <?php foreach ($query as $row){?>
 
