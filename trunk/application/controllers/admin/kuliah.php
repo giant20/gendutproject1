@@ -20,10 +20,10 @@ class Kuliah extends CI_Controller {
 	function index()
 	{	$config['base_url'] = $this->config->site_url().'/admin/kuliah/index';
 		$config['total_rows'] = $this->db->count_all('tb_mahasiswa');
-		$per_page = $config['per_page'] = 2;
-		$offset = $this->uri->segment(4);
-			
-		$data['urutan'] = $this->uri->segment(3);		
+			$per_page = $config['per_page'] = 10;
+			$offset = $this->uri->segment(4);
+		$config['uri_segment'] = '4';	
+		$data['urutan'] = $this->uri->segment(4);		
 		$data['title'] = 'GunungKidul';
 		$data['query'] = $this->Mahasiswa_model->getMahasiswa('list',FALSE,$per_page,$offset);
 		$data['main_view'] = 'admin/kuliah/index';

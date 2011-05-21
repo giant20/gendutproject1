@@ -6,8 +6,9 @@ class Matkul_model extends CI_Model {
 		}
 	
 	
-	function getMatkul($query=FALSE,$id=FALSE) {
+	function getMatkul($query=FALSE,$id=FALSE,$limit=FALSE,$offset=FALSE) {
 		if($query == 'list') {
+						$this->db->limit($limit,$offset);
 				return $this->db->get('tb_matkul')->result_array();
 				}
 			elseif($query == 'by_id')
