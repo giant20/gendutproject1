@@ -79,3 +79,16 @@ $options = array(
 				
 return form_dropdown('semester',$options,$selected);
 }
+
+function statusDropdown($selected=FALSE) {
+
+$options = array(
+                  'admin'  => 'Admin',
+                  'user'    => 'User',
+                  
+                );	
+return form_dropdown('status',$options,$selected);
+}
+
+
+

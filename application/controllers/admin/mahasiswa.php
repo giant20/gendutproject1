@@ -5,8 +5,10 @@ class Mahasiswa extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+		$this->load->helper('bantuan_helper');
 		$this->load->model('admin/Mahasiswa_model');
-			if(!$this->session->userdata('status') && !$this->session->userdata('username') ){
+		//$this->load->model('admin/Kuliah_model');
+		if(!$this->session->userdata('status') && !$this->session->userdata('username') ){
 			redirect('home');
 		}
 		
@@ -14,15 +16,17 @@ class Mahasiswa extends CI_Controller {
 
 	function index()
 	{
+		//$this->load->library('pagination');
 		
+				$offset = $this->uri->segment(4);
 		$config['base_url'] = $this->config->site_url().'/admin/mahasiswa/index';
 		$config['total_rows'] = $this->db->count_all('tb_mahasiswa');
-		$config['per_page'] = 2;
-			$offset = $this->uri->segment(4);
+		$config['per_page'] = 10;
+		$config['uri_segment'] = '4';
 		
 
 		
-		$data['urutan'] = $this->uri->segment(3);	
+		$data['urutan'] = $this->uri->segment(4);	
 		$data['title'] = 'GunungKidul';
 		$data['query'] = $this->Mahasiswa_model->getMahasiswa('list',FALSE,$config['per_page'],$offset,FALSE);
 		$data['main_view'] = 'admin/mahasiswa/index';
@@ -31,6 +35,9 @@ class Mahasiswa extends CI_Controller {
 	
 	}
 	function add() {
+		$this->form_validation->set_rules('pass1','Password','trim|required|alpha_numeric|min_length[6]|xss_clean');
+		$this->form_validation->set_rules('pass2','Retype Password','trim|required|alpha_numeric|min_length[6]|matches[pass1]|xss_clean');
+		$this->form_validation->set_rules('username','username','required');
 		$this->form_validation->set_rules('nama','kode','required');
 		$this->form_validation->set_rules('no_mahasiswa','No Mhs','required');
 		$this->form_validation->set_rules('tgl_lahir','Tanggal Lahir','required');
@@ -44,7 +51,9 @@ class Mahasiswa extends CI_Controller {
 			}
 			else {
 			
-				$data=array('nama_mahasiswa'=> $this->input->post('nama'),
+				$data=array('username'=> $this->input->post('username'),
+							'password'=>  md5($this->input->post('pass1')),
+							'nama_mahasiswa'=> $this->input->post('nama'),
 							'no_mahasiswa'=> $this->input->post('no_mahasiswa'),
 							'tgl_lahir'=> $this->input->post('tgl_lahir'),
 							'alamat'=> $this->input->post('alamat'));
@@ -55,6 +64,9 @@ class Mahasiswa extends CI_Controller {
 			}
 			
 		function edit() {
+				//$this->form_validation->set_rules('pass1','Password','trim|required|alpha_numeric|min_length[6]|xss_clean');
+				//$this->form_validation->set_rules('pass2','Retype Password',				'trim|required|alpha_numeric|min_length[6]|matches[pass1]|xss_clean');
+				$this->form_validation->set_rules('username','username','required');
 				$this->form_validation->set_rules('nama','kode','required');
 				$this->form_validation->set_rules('no_mahasiswa','No Mhs','required');
 				$this->form_validation->set_rules('tgl_lahir','Tanggal Lahir','required');
@@ -64,18 +76,39 @@ class Mahasiswa extends CI_Controller {
 			$id = $this->uri->segment(4);
 			$data['title'] = 'Edit Mahasiswa';
 			$data['main_view'] = 'admin/mahasiswa/edit';
+			$id_mahasiswa = $this->uri->segment(5);
+			$data['nama'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id_mahasiswa);
 			$data['row'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id);
 			$this->load->view('admin/index',$data);
 			}
 			else {
+			//password kosong
+			if ($this->input->post('pass1') ==''){
 				$id = $this->uri->segment(4);
-				$data=array('nama_mahasiswa'=> $this->input->post('nama'),
+				$data=array('username'=> $this->input->post('username'),
+							'nama_mahasiswa'=> $this->input->post('nama'),
 							'no_mahasiswa'=> $this->input->post('no_mahasiswa'),
 							'tgl_lahir'=> $this->input->post('tgl_lahir'),
 							'alamat'=> $this->input->post('alamat'));
 							
 							$this->Mahasiswa_model->editMahasiswa($id,$data);
 							redirect('admin/mahasiswa');
+			//password isi
+			}
+			else
+			{
+				$id = $this->uri->segment(4);
+				$data=array('username'=> $this->input->post('username'),
+							'password'=>  md5($this->input->post('pass1')),
+							'nama_mahasiswa'=> $this->input->post('nama'),
+							'no_mahasiswa'=> $this->input->post('no_mahasiswa'),
+							'tgl_lahir'=> $this->input->post('tgl_lahir'),
+							'alamat'=> $this->input->post('alamat'),
+							'status'=> $this->input->post('status'));
+							
+							$this->Mahasiswa_model->editMahasiswa($id,$data);
+							redirect('admin/mahasiswa');
+				}
 				}
 			}
 	function delete() {

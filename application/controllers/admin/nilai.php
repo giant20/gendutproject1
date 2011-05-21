@@ -58,7 +58,7 @@ function edit() {
 			else {
 				$id_mahasiswa = $this->uri->segment(5);
 				$id = $this->uri->segment(4);
-				$data=array('id_mahasiswa' =>$id,
+				$data=array('id_mahasiswa' =>$id_mahasiswa,
 							'id_matkul'=> $this->input->post('id_matkul'),
 							'nilai_huruf'=> $this->input->post('nilai_huruf'),
 							'nilai_angka' => $this->input->post('nilai_angka'));

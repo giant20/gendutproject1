@@ -14,10 +14,21 @@ class Matkul extends CI_Controller {
 	}
 
 	function index()
-	{
+	{ 	$this->load->library('pagination');
+			$offset = $this->uri->segment(4);
+		$config['base_url'] = $this->config->site_url().'/admin/matkul/index';
+		$config['total_rows'] = $this->db->count_all('tb_matkul');
+		$config['per_page'] = 10;
+		$config['uri_segment'] = '4';
+		
+
+		
+		$data['urutan'] = $this->uri->segment(4);	
+		
 		$data['title'] = 'GunungKidul';
-		$data['query'] = $this->Matkul_model->getMatkul('list',FALSE);
+		$data['query'] = $this->Matkul_model->getMatkul('list',FALSE,$config['per_page'],$offset,FALSE);
 		$data['main_view'] = 'admin/matkul/matakuliah';
+		$this->pagination->initialize($config);
 		$this->load->view('admin/index',$data);
 	
 	}
