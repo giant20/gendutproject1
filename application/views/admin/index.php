@@ -17,6 +17,7 @@
 	<li id="tab_daftar"><?php echo anchor('admin/mahasiswa', 'Mahasiswa');?></li>
 	<li id="tab_cetak"><?php echo anchor('admin/kuliah', 'Kuliah');?></li>
 	<li id="tab_konten"><?php echo anchor('admin/nilai', 'Nilai');?></li>
+	<li id="tab_konten"><?php echo anchor('admin/khs', 'KHS');?></li>
 		<li id="tab_logout"><?php echo anchor('home/doLogout', 'Logout');?></li>
 
 </ul>
