@@ -46,7 +46,9 @@ class Matkul extends CI_Controller {
 			else {
 			
 				$data=array('kode_matkul'=> $this->input->post('kode_matkul'),
-							'nama_matkul'=> $this->input->post('nama_matkul'));
+							'nama_matkul'=> $this->input->post('nama_matkul'),
+							'semester'=> $this->input->post('semester'),
+							'tahun'=> $this->input->post('tahun'));
 							
 							$this->Matkul_model->addMatkul($data);
 							redirect('admin/matkul');
@@ -68,7 +70,9 @@ class Matkul extends CI_Controller {
 			else {
 				$id = $this->uri->segment(4);
 				$data=array('kode_matkul'=> $this->input->post('kode_matkul'),
-							'nama_matkul'=> $this->input->post('nama_matkul'));
+							'nama_matkul'=> $this->input->post('nama_matkul'),
+							'semester'=> $this->input->post('semester'),
+							'tahun'=> $this->input->post('tahun'));
 							
 							$this->Matkul_model->editMatkul($id,$data);
 							redirect('admin/matkul');
