@@ -10,7 +10,7 @@
 	<td><?php echo $no?></td>
 	<td><?php echo $row['kode_matkul']?></td>
 	<td><?php echo $row['nama_matkul']?></td>
-	<td><?php echo $row['nama_semester']?></td>
+	<td><?php echo $row['semester']?></td>
 	<td><?php echo $row['tahun']?></td>
 
 	<td><a href="<?php echo base_url().'admin/matkul/edit/'.$row['id_matkul'];?>">edit</a> |

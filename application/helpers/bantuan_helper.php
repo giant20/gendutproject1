@@ -77,7 +77,7 @@ $options = array(
                   
                 );
 				
-return form_dropdown('semester',$options,$selected);
+return form_dropdown('semester1',$options,$selected);
 }
 
 function statusDropdown($selected=FALSE) {
@@ -104,6 +104,6 @@ $options = array(
 				  'Semester VIII'    => 'Semester VIII',
                   
                 );	
-return form_dropdown('status',$options,$selected);
+return form_dropdown('semester',$options,$selected);
 }
 
