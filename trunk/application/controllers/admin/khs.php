@@ -51,7 +51,7 @@ function view() {
 
 				$qr = $this->db->query("SELECT m.nama_matkul ,k.status FROM tb_matkul m 
 												JOIN tb_kuliah k ON k.id_matkul = m.id_matkul 
-												WHERE m.tahun='$tahun' AND m.semester='$semester' AND k.id_mahasiswa='$id_mhs'");
+												WHERE m.tahun='$tahun' AND m.id_semester='$semester' AND k.id_mahasiswa='$id_mhs'");
 
 			
 		
@@ -77,7 +77,7 @@ function search()
 						$qr = $this->db->query("SELECT m.nama_matkul, k.nilai_huruf, k.nilai_angka, k.id_kuliah, k.status
 												FROM tb_kuliah k 
 												JOIN tb_matkul m ON m.id_matkul = k.id_matkul 
-												WHERE m.tahun='$tahun' AND m.semester='$semester' AND k.id_mahasiswa='$id_mhs'");
+												WHERE m.tahun='$tahun' AND m.id_semester='$semester' AND k.id_mahasiswa='$id_mhs'");
 
 			$data['query'] = $qr->result_array();
 			$data['title'] = 'Edit  Kuliah';
@@ -96,7 +96,7 @@ function input_khs()
 				{
 				$id_kuliah= $this->uri->segment(4);
 				$id= $this->uri->segment(4);
-					$qr = $this->db->query("select k.id_mahasiswa, k.id_matkul, k.nilai_angka, k.nilai_huruf, m.semester, m.tahun
+					$qr = $this->db->query("select k.id_mahasiswa, k.id_matkul, k.nilai_angka, k.nilai_huruf, m.id_semester, m.tahun
 											from tb_kuliah k 
 											JOIN tb_matkul m ON m.id_matkul = k.id_matkul
 											where k.id_kuliah='$id_kuliah' "); 
@@ -115,7 +115,7 @@ function input_khs()
 							'id_matkul'=> $row->id_matkul,
 							'nilai_angka'=> $row->nilai_angka,
 							'nilai_huruf'=> $row->nilai_huruf,
-							'semester'=> $row->semester,
+							'id_semester'=> $row->id_semester,
 							'tahun'=> $row->tahun);
 						
 		

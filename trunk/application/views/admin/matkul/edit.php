@@ -14,7 +14,7 @@
 <tr>
     <td>Semester</td>
     <td>:</td>
-    <td><?php echo form_error('nama_matkul'); ?><?php echo namaSemDropdown($row->semester); ?></td>
+    <td><?php echo form_error('nama_matkul'); ?><?php echo namaSemDropdown($row->id_semester); ?></td>
   </tr>
   
   <tr>
