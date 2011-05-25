@@ -89,7 +89,8 @@ class Mahasiswa extends CI_Controller {
 							'nama_mahasiswa'=> $this->input->post('nama'),
 							'no_mahasiswa'=> $this->input->post('no_mahasiswa'),
 							'tgl_lahir'=> $this->input->post('tgl_lahir'),
-							'alamat'=> $this->input->post('alamat'));
+							'alamat'=> $this->input->post('alamat'),
+							'status'=> $this->input->post('status'));
 							
 							$this->Mahasiswa_model->editMahasiswa($id,$data);
 							redirect('admin/mahasiswa');
