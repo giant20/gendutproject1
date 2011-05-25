@@ -24,18 +24,7 @@ class Khs extends CI_Controller {
 		$data['urutan'] = $this->uri->segment(4);		
 		$data['title'] = 'GunungKidul';
 					
-				/*	
 					
-					if($data['status']=='1')	{
-			
-								$data['input'] = '' ;
-
-						}
-						else {
-						$data['input'] = 'input';
-
-						}
-				*/
 		$data['query'] = $this->Mahasiswa_model->getMahasiswa('list',FALSE,$per_page,$offset);
 		$data['main_view'] = 'admin/khs/index';
 		$this->pagination->initialize($config);
@@ -52,15 +41,24 @@ function view() {
 			$data['id_mhs'] = $id;
 			$data['nama'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id);
 
+		
+			
+			
+			
 			$tahun = $this->input->post('tahun');
 				$semester = $this->input->post('semester');
 				$id_mhs = $this->session->userdata('id_mahasiswa');
 
-				$qr = $this->db->query("SELECT m.nama_matkul FROM tb_matkul m 
+				$qr = $this->db->query("SELECT m.nama_matkul ,k.status FROM tb_matkul m 
 												JOIN tb_kuliah k ON k.id_matkul = m.id_matkul 
 												WHERE m.tahun='$tahun' AND m.semester='$semester' AND k.id_mahasiswa='$id_mhs'");
 
+			
+		
 			$data['query'] = $qr->result_array();
+			
+			
+			
 			$this->load->view('admin/index',$data);
 			
 					
@@ -76,7 +74,7 @@ function search()
 						$tahun = $this->input->post('tahun');
 						$semester = $this->input->post('semester');
 					
-						$qr = $this->db->query("SELECT m.nama_matkul, k.nilai_huruf, k.nilai_angka, k.id_kuliah
+						$qr = $this->db->query("SELECT m.nama_matkul, k.nilai_huruf, k.nilai_angka, k.id_kuliah, k.status
 												FROM tb_kuliah k 
 												JOIN tb_matkul m ON m.id_matkul = k.id_matkul 
 												WHERE m.tahun='$tahun' AND m.semester='$semester' AND k.id_mahasiswa='$id_mhs'");
@@ -97,6 +95,7 @@ function search()
 function input_khs()
 				{
 				$id_kuliah= $this->uri->segment(4);
+				$id= $this->uri->segment(4);
 					$qr = $this->db->query("select k.id_mahasiswa, k.id_matkul, k.nilai_angka, k.nilai_huruf, m.semester, m.tahun
 											from tb_kuliah k 
 											JOIN tb_matkul m ON m.id_matkul = k.id_matkul
@@ -105,14 +104,19 @@ function input_khs()
 				$row= $qr->row();		
 						$id_mhs = $row->id_mahasiswa;
 						$status = 1;
+				
+				$data=array('id_kuliah'=> $id_kuliah,
+							'status'=> $status);
+							
+						$this->Kuliah_model->editKuliah($id,$data);	
+					
 					
 				$data=array('id_mahasiswa'=> $row->id_mahasiswa,
 							'id_matkul'=> $row->id_matkul,
 							'nilai_angka'=> $row->nilai_angka,
 							'nilai_huruf'=> $row->nilai_huruf,
 							'semester'=> $row->semester,
-							'tahun'=> $row->tahun,
-							'status'=> $status);
+							'tahun'=> $row->tahun);
 						
 		
 			
