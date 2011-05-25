@@ -37,8 +37,14 @@
     <td><?php echo $row['nama_matkul']?></td>
     <td><?php echo $row['nilai_huruf']?></td>
     <td><?php echo $row['nilai_angka']?></td>
-	<td><a href="<?php echo base_url()?>admin/khs/input_khs/<?php echo $row['id_kuliah']?>"> Input</a></td>
-</tr>
+	<?php if ($row['status'] == '0'){ ?>
+	<td><a href="<?php echo base_url()?>admin/khs/input_khs/<?php echo $row['id_kuliah']?>">input</a></td>
+	<?php }
+	else {?>
+	<td><?php echo "sudah terinput"; ?></td>
+	<?php	}
+		?>
+	</tr>
 <?php 
 $no++;
 } 
