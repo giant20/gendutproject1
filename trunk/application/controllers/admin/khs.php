@@ -6,6 +6,7 @@ class Khs extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('admin/Kuliah_model');
+		$this->load->model('admin/Khs_model');
 		$this->load->model('admin/Mahasiswa_model');
 		$this->load->model('admin/Matkul_model');
 		$this->load->helper('bantuan_helper');
@@ -22,6 +23,19 @@ class Khs extends CI_Controller {
 		$config['uri_segment'] = '4';	
 		$data['urutan'] = $this->uri->segment(4);		
 		$data['title'] = 'GunungKidul';
+					
+				/*	
+					
+					if($data['status']=='1')	{
+			
+								$data['input'] = '' ;
+
+						}
+						else {
+						$data['input'] = 'input';
+
+						}
+				*/
 		$data['query'] = $this->Mahasiswa_model->getMahasiswa('list',FALSE,$per_page,$offset);
 		$data['main_view'] = 'admin/khs/index';
 		$this->pagination->initialize($config);
@@ -37,87 +51,86 @@ function view() {
 			$data['main_view'] = 'admin/khs/view';
 			$data['id_mhs'] = $id;
 			$data['nama'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id);
-			//$data['nama_mahasiswa'] = $nama->nama_mahasiswa;
-			$data['query'] = $this->Kuliah_model->getKuliah('by_mhs',FALSE,$id);
 
+			$tahun = $this->input->post('tahun');
+				$semester = $this->input->post('semester');
+				$id_mhs = $this->session->userdata('id_mahasiswa');
+
+				$qr = $this->db->query("SELECT m.nama_matkul FROM tb_matkul m 
+												JOIN tb_kuliah k ON k.id_matkul = m.id_matkul 
+												WHERE m.tahun='$tahun' AND m.semester='$semester' AND k.id_mahasiswa='$id_mhs'");
+
+			$data['query'] = $qr->result_array();
 			$this->load->view('admin/index',$data);
 			
 					
 }
-function edit() {
-			
-			$id_mahasiswa = $this->uri->segment(5);			
-			$this->form_validation->set_rules('id_matkul','kode','required');
-			$this->form_validation->set_rules('kelas','kelas','required');
 
-			if($this->form_validation->run()== FALSE) {
-				$id = $this->uri->segment(4);
-				$data['title'] = 'Edit Mahasiswa';
-				$data['main_view'] = 'admin/kuliah/edit';
-				$data['query'] = $this->Matkul_model->getMatkul('list',$id);
-				$data['nama'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id_mahasiswa);
-				$data['row'] = $this->Kuliah_model->getKuliah('by_id',$id,FALSE);
-				$this->load->view('admin/index',$data);
-			}
-			else {
-				$id_mahasiswa = $this->uri->segment(5);		
-				$id = $this->uri->segment(4);
-				$data=array('id_matkul'=> $this->input->post('id_matkul'),
-							'kelas'=> $this->input->post('kelas'));
-							
-						$this->Kuliah_model->editKuliah($id,$data);
-						redirect('admin/kuliah/view/'.$id_mahasiswa);
-				}
-			}
-			
-function add() {
-				
-						
-				$this->form_validation->set_rules('kode','kode','required');
-				$this->form_validation->set_rules('nama_mahasiswa','nama_mahasiswa','required');
-				if($this->form_validation->run()== FALSE) {
-				$id = $this->uri->segment(4);
-				$data['title'] = 'Edit Mahasiswa';
-				$data['main_view'] = 'admin/kuliah/add';
-				//$data['pesan'] = '';
-				$data['query'] = $this->Matkul_model->getMatkul('list',$id);
-				$data['row'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id);
-				$this->load->view('admin/index',$data);
-			}
-			else {
-					$id = $this->uri->segment(4);
-					foreach ($this->input->post('kode') as $row) { 
-					/* if (!$this->input->post('kelas'.$row) && !$row==''){	
-					//$this->session->set_flashdata('item', 'data kosong');
-						redirect('admin/kuliah/add/'.$id);		
-					}*/
-				//else {
-					$kelas = $this->input->post('kelas'.$row);
-									$id = $this->uri->segment(4);							
-				$data=array('id_mahasiswa'=> $id,
-								'id_matkul'=> $row,
-							'kelas'=> $kelas);
-												
-					//	echo $this->input->post('kode');
-						$this->Kuliah_model->addKuliah($data);
-
-						
-				}
-				
-			
-				
-				redirect('admin/kuliah/view/'.$id);
-				//}
-				}
-	}
 					
+function search()
+				{
+				
+				
+						
+						$id_mhs = $this->input->post('id_mhs');
+						$tahun = $this->input->post('tahun');
+						$semester = $this->input->post('semester');
+					
+						$qr = $this->db->query("SELECT m.nama_matkul, k.nilai_huruf, k.nilai_angka, k.id_kuliah
+												FROM tb_kuliah k 
+												JOIN tb_matkul m ON m.id_matkul = k.id_matkul 
+												WHERE m.tahun='$tahun' AND m.semester='$semester' AND k.id_mahasiswa='$id_mhs'");
 
+			$data['query'] = $qr->result_array();
+			$data['title'] = 'Edit  Kuliah';
+			$data['main_view'] = 'admin/khs/view';
+			$data['id_mahasiswa'] = $id_mhs;
+			$data['nama'] = $this->Mahasiswa_model->getMahasiswa('by_id',$id_mhs);
+			
+				$this->load->view('admin/index',$data);
+
+
+			}
+
+
+					
+function input_khs()
+				{
+				$id_kuliah= $this->uri->segment(4);
+					$qr = $this->db->query("select k.id_mahasiswa, k.id_matkul, k.nilai_angka, k.nilai_huruf, m.semester, m.tahun
+											from tb_kuliah k 
+											JOIN tb_matkul m ON m.id_matkul = k.id_matkul
+											where k.id_kuliah='$id_kuliah' "); 
+											
+				$row= $qr->row();		
+						$id_mhs = $row->id_mahasiswa;
+						$status = 1;
+					
+				$data=array('id_mahasiswa'=> $row->id_mahasiswa,
+							'id_matkul'=> $row->id_matkul,
+							'nilai_angka'=> $row->nilai_angka,
+							'nilai_huruf'=> $row->nilai_huruf,
+							'semester'=> $row->semester,
+							'tahun'=> $row->tahun,
+							'status'=> $status);
+						
+		
+			
+			$this->Khs_model->addKhs($data);
+			redirect('admin/khs/view/'.$id_mhs);
+
+
+			}
+		
+			
+			
+			
 					
 		function delete() {
 				$id_mhs = $this->uri->segment(5);
 				$id = $this->uri->segment(4);
 				$this->Kuliah_model->deleteKuliah($id);
-				redirect('admin/kuliah/view/'.$id_mhs);
+				redirect('admin/khs/view/'.$id_mhs);
 	}
 					
 					
