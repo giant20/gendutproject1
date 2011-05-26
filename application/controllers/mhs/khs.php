@@ -35,8 +35,10 @@ class Khs extends CI_Controller {
 				$semester = $this->input->post('semester');
 				$id_mhs = $this->session->userdata('id_mahasiswa');
 
-				$qr = $this->db->query("SELECT * FROM tb_khs 
-										WHERE tahun='$tahun' AND semester='$semester' AND id_mahasiswa='$id_mhs'");
+						$qr = $this->db->query("SELECT h.nilai_huruf, m.nama_matkul 
+												FROM tb_matkul m 
+												JOIN tb_khs h ON h.id_matkul = m.id_matkul 
+												where h.id_semester='$semester' and h.id_mahasiswa='$id_mhs'");
 
 			$data['query'] = $this->Kuliah_model->getKuliah('by_id',FALSE,$qr,FALSE,FALSE);
 

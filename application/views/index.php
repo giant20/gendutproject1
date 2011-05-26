@@ -8,7 +8,15 @@
 <div id="header">
 <div id="navigasi"><?php $this->load->view('navigasi')?></div></div>
 <div id="conten">
-<div id="conten_right">R</div>
+<div id="conten_right">
+<div id="info">
+<div id="info_atas">Info Kampus </div>
+<div id="info_isi">sssadas</div>
+<div id="info_ba"></div>
+
+</div>
+
+</div>
 <div id="conten_center">
 <?php $this->load->view($main_view)?>
 </div>
