@@ -9,6 +9,7 @@ class Home extends CI_Controller {
 		$this->load->model('Home_model');
 		$this->load->model('mhs/Mahasiswa_model');
 		$this->load->model('mhs/Khs_model');
+		$this->load->model('konten/Konten_model');
 	}
 	
 	
@@ -21,7 +22,7 @@ class Home extends CI_Controller {
 			
 			$data['copy'] = 'Copyright &copy; 2011 by genduty.blogspot.com. All Rights Reserved.';
 			$data['link_copy'] = 'www.genduty.blogspot.com';
-			
+			$data['query'] = $this->Konten_model->getKonten('info',FALSE);
 			$data['status'] = $this->session->userdata('status');
 			$data['username'] = $this->session->userdata('username');
 			$data['id_mahasiswa'] = $this->session->userdata('id_mahasiswa');
