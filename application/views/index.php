@@ -9,12 +9,8 @@
 <div id="navigasi"><?php $this->load->view('navigasi')?></div></div>
 <div id="conten">
 <div id="conten_right">
-<div id="info">
-<div id="info_atas">Info Kampus </div>
-<div id="info_isi">sssadas</div>
-<div id="info_ba"></div>
+<?php $this->view('nav_right')?>
 
-</div>
 
 </div>
 <div id="conten_center">

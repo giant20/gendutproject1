@@ -124,7 +124,7 @@ body {
 	margin-left: 5px;
 }
 
-#info_atas{
+#info #info_atas{
 	background-image: url(../images/m_a.gif);
 	height: 29px;
 	width: 230px;
@@ -135,21 +135,17 @@ body {
 	color: #9933FF;
 }
 
-#info_isi{
-	height: 50px;
+#info #info_isi{
 	background-image: url(../images/m_t.gif);
 	width: 230px;
-	padding-top: -10px;
-	position: relative;
-	top: -10px;
-
+	margin-top: -17px;
 }
-#info_ba{
-	height: 10px;
+#info #info_ba{
 	background-image: url(../images/m_b.gif);
 	width: 230px;
-	position: relative;
-	top: -10px;
+	height: 30px;
+	background-repeat: no-repeat;
+	margin-top: -15px;
 }
 
 #depan {
