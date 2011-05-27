@@ -181,13 +181,13 @@ body {
 
 #depan_isi {
 	background-image: url(../images/menu_berita/3_03.gif);
-	height: 78px;
 	width: 488px;
+	margin-top: -15px;
 }
 
 .depan_isi {
 	margin-left: 5px;
-	border: thin dotted #0000CC;
+	
 	width: 475px;
 }
 
@@ -208,3 +208,70 @@ body {
 
 font-size: 12px;
 }
+
+
+
+
+/*---berita---*/
+					  				  
+.floatLeft 									{ float: left; margin-right: 10px;}
+.floatRight									{ float: right; }
+.clear 										{ clear: both; }
+a											{ outline: none; }
+
+
+/*
+	PAGE STRUCTURE
+*/
+#page-wrap 									{
+	width: 470px;
+	min-height: 328px;
+											 top center;
+
+	position: relative;
+	margin-left: 3px;
+	margin-top: 15px;
+}
+
+
+/*
+	TYPOGRAPHY
+*/
+ul											{ list-style: square inside; }
+a, a:visited								{ color: #729dff; text-decoration: none; }
+
+
+
+/*
+	SLIDER
+*/
+.slider-wrap								{ width: 450px; position: absolute; }			
+.stripViewer .panelContainer 
+.panel ul									{ text-align: left; margin: 0 15px 0 30px; }
+.stripViewer								{ position: relative; overflow: hidden; width: 470px; height: 285px; }
+.stripViewer .panelContainer				{ position: relative; left: 0; top: 0; }
+.stripViewer .panelContainer .panel			{ float: left; height: 100%; position: relative; width: 470px; }
+.stripNavL, .stripNavR, .stripNav			{ display: none; }
+.nav-thumb 									{
+	border: 1px solid black;
+	margin-right: 2px;
+	
+}
+#movers-row									{ margin: -43px 0 0 62px; }
+#movers-row div								{ width: 20%; float: left; }
+#movers-row div a.cross-link 				{ float: right; }
+.photo-meta-data							{ background: url(../images/transpBlack.png); padding: 10px; height: 70px; 
+											  margin-top: -90px; position: relative; z-index: 9999; color: white; }
+.photo-meta-data span 						{ font-size: 13px; }
+.cross-link									{ display: block; width: 62px; margin-top: -14px; 
+											  position: relative; padding-top: 15px; z-index: 9999; }
+.active-thumb 								{ background: transparent url(../images/icon-uparrowsmallwhite.png) top center no-repeat; }
+.menu_berita{
+	margin-top: -18%;
+	margin-right: 23px;
+}
+
+
+
+
+
