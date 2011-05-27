@@ -43,7 +43,9 @@ class Khs extends CI_Controller {
 
 			$data['query'] = $this->Kuliah_model->getKuliah('by_id',FALSE,$qr,FALSE,FALSE);
 			$data['query2'] = $this->Konten_model->getKonten('info',FALSE);
-				$usernama = $this->session->userdata('id_mahasiswa');
+			$data['query3'] = $this->Khs_model->getKhs('by_sem',FALSE,$id_mhs,FALSE,FALSE);
+			$data['row2'] = $this->Kuliah_model->getKuliah('by_id',FALSE,$qr,FALSE,FALSE);
+			$usernama = $this->session->userdata('id_mahasiswa');
 			$data['nama'] = $this->session->userdata('nama_mahasiswa');
 			$data['img'] = $this->session->userdata('gambar');
 
@@ -89,6 +91,7 @@ class Khs extends CI_Controller {
 
 			$data['query'] = $qr->result_array();
 			$data['query2'] = $this->Konten_model->getKonten('info',FALSE);
+				$data['query3'] = $this->Khs_model->getKhs('by_sem',FALSE,$id_mhs,FALSE,FALSE);
 			$data['nama'] = $this->session->userdata('nama_mahasiswa');
 			$data['img'] = $this->session->userdata('gambar');
 			$data['copy'] = 'Copyright &copy; 2011 by genduty.blogspot.com. All Rights Reserved.';

@@ -18,7 +18,7 @@ foreach($query as $row):  ?>
 $i++;
 endforeach;?>
 </table><hr>
-<a href ="<?php echo base_url() ?>mhs/khs/search/<?php echo '1'; ?>"> Semester I</a><br>
-<a href ="<?php echo base_url() ?>mhs/khs/search/<?php echo '2'; ?>"> Semester II</a><br>
-<a href ="<?php echo base_url() ?>mhs/khs/search/<?php echo '3'; ?>"> Semester III</a><br>
-<a href ="<?php echo base_url() ?>mhs/khs/search/<?php echo '4'; ?>"> Semester IV</a><br>
+<?php foreach ($query3 as $row){ ?>
+<a href ="<?php echo base_url() ?>mhs/khs/search/<?php echo $row['id_semester'] ?>"> <?php echo $row['nama_semester'] ?></a><br>
+
+<?php } ?>
