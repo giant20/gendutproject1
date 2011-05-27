@@ -182,7 +182,7 @@ body {
 #depan_isi {
 	background-image: url(../images/menu_berita/3_03.gif);
 	width: 488px;
-	margin-top: -15px;
+
 }
 
 .depan_isi {
@@ -262,6 +262,7 @@ a, a:visited								{ color: #729dff; text-decoration: none; }
 #movers-row div a.cross-link 				{ float: right; }
 .photo-meta-data							{ background: url(../images/transpBlack.png); padding: 10px; height: 70px; 
 											  margin-top: -90px; position: relative; z-index: 9999; color: white; }
+.photo-meta-data a							{ color: white; }
 .photo-meta-data span 						{ font-size: 13px; }
 .cross-link									{ display: block; width: 62px; margin-top: -14px; 
 											  position: relative; padding-top: 15px; z-index: 9999; }
@@ -270,8 +271,32 @@ a, a:visited								{ color: #729dff; text-decoration: none; }
 	margin-top: -18%;
 	margin-right: 23px;
 }
+.img {
+	background-color: #FF99FF;
+	padding: 2px;
+	float: left;
+	margin-right: 2px;
+	margin-left: 4px;
+	position: relative;
+	right: 4px;
+}
+.date {
+	font-size: 10px;
+	font-weight: bold;
+	color: #0066FF;
+	position: relative;
+	top: 5px;
+}
 
-
-
+.judul{
+font-size: 14px;
+	color: #FF00FF;
+}
+img {
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+}
 
 

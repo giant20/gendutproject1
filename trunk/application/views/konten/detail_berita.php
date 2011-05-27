@@ -1,6 +1,6 @@
 <div id="depan">
 <div id="depan_atas">
-<div class="depan_atas">Info Kampus</div>
+<div class="depan_atas">Berita Terbaru</div>
 </div>
 <div id="depan_isi">
 <div class="depan_isi">

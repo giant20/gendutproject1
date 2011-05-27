@@ -10,8 +10,10 @@
 	<div class="slider-wrap">
 		<div id="main-photo-slider" class="csw">
 			<div class="panelContainer">
+			
 <?php $i=1; ?>
 <?php foreach ($query3 as $row) { ?>
+<a href= "<?php echo base_url().'konten/konten/detail_berita/'.$row['id_konten'] ?>">
 				<div class="panel" title="<?php echo $row['title'] ?>">
 					<div class="wrapper">
 						<img src="<?php echo base_url()?>assets/images/<?php echo $row['image'] ?>" alt="temp" width="470" height="200" />
@@ -24,7 +26,7 @@
 								</span>
 						</div>
 					</div>
-				</div>
+				</div></a>
 			
 <?php $i++; } ?>
 			
