@@ -10,19 +10,21 @@ class Home extends CI_Controller {
 		$this->load->model('mhs/Mahasiswa_model');
 		$this->load->model('mhs/Khs_model');
 		$this->load->model('konten/Konten_model');
+		$this->load->helper('text');
 	}
 	
 	
 
 	function index() // login
-	{
+	{		
 			$data['title'] = 'Home';
 			$data['nama'] = $this->session->userdata('nama_mahasiswa');
 			$data['img'] = $this->session->userdata('gambar');
 			
 			$data['copy'] = 'Copyright &copy; 2011 by genduty.blogspot.com. All Rights Reserved.';
 			$data['link_copy'] = 'www.genduty.blogspot.com';
-			$data['query'] = $this->Konten_model->getKonten('info',FALSE);
+			$data['query2'] = $this->Konten_model->getKonten('info',FALSE);
+			$data['query3'] = $this->Konten_model->getKonten('berita',FALSE);
 			$data['status'] = $this->session->userdata('status');
 			$data['username'] = $this->session->userdata('username');
 			$data['id_mahasiswa'] = $this->session->userdata('id_mahasiswa');
@@ -34,14 +36,14 @@ class Home extends CI_Controller {
 							//menampilkan user
 								
 								$data['slide_view'] = "mhs/user";
-								$data['main_view'] = 'mhs/profil';
+								$data['main_view'] = 'mhs/berita';
 								$this->load->view('index',$data);
 
 						}
 						else {
 						//menampilkan halaman login
 						$data['slide_view'] = "mhs/login.php";
-						$data['main_view'] = 'mhs/profil';
+						$data['main_view'] = 'mhs/berita';
 						$this->load->view('index',$data);
 
 						}
@@ -60,7 +62,7 @@ class Home extends CI_Controller {
 			$data['copy'] = 'Copyright &copy; 2011 by genduty.blogspot.com. All Rights Reserved.';
 			$data['slide_view'] = "mhs/login.php";
 			$data['nama'] = $this->Khs_model->getKhs('by_mhs',FALSE,$usernama,FALSE,FALSE);
-			$data['main_view'] = 'mhs/profil';
+			$data['main_view'] = 'mhs/berita';
 			$this->load->view('index',$data);
 			}
 		else{

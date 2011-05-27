@@ -2,8 +2,8 @@
 <div id="info_atas">Info Kampus </div>
 <div id="info_isi">
 <ul>
-<?php foreach ($query as $row) { ?>
-<li><?php echo $row['title']?></li>
+<?php foreach ($query2 as $row) { ?>
+<li><a href="<?php echo base_url().'konten/konten/detail_info/'.$row['id_konten'] ?>"><?php echo $row['title']?></a></li>
 <?php } ?>
 <ul>
 
