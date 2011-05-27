@@ -31,6 +31,13 @@ class Khs_model extends CI_Model {
 				$this->db->where('tb_khs.id_mahasiswa',$id_mhs);
 					return $this->db->get('tb_khs')->result_array();
 		}
+			elseif($query == 'by_sem') {
+				return	$this->db->query('select s.nama_semester, m.id_semester FROM tb_semester s JOIN tb_khs m ON m.id_semester = s.id_semester group by m.id_semester')->result_array();
+									
+						//return $this->db->get('tb_khs')->result_array();
+			}
+
+		
 	}
 	
 	
