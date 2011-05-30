@@ -21,6 +21,7 @@ class Matkul_model extends CI_Model {
 			{	
 				return $this->db->get('tb_semester')->result_array();
 			}
+			
 		}
 	function addMatkul($data) {
 			$this->db->insert('tb_matkul',$data);
