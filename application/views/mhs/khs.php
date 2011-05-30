@@ -1,11 +1,14 @@
-<table border="0" width="500" >
-<tr><td width="30"> No</td><td width="390">Mata Kuliah</td><td width="80">Nilai</td></tr>
+Kartu Hasil Studi
+Berikut ini Kartu Hasil Studi tiap Semester dan Tahun Ajaran, Untuk nilai yang belum keluar Defaultnya E atau kosong
+
+<table border="0" width="500" cellspacing="0" >
+<tr><th width="30"> No</th><th width="390">Mata Kuliah</th><th width="80">Nilai</th></tr>
 
 
 <?php
 $i=1; 
 foreach($query as $row):  ?>
-	<tr class="zebra"> 
+	<tr class="<?php if ($i %2 == 0) echo 'zebra';?>"> 
 
 
 		<td><?php echo $i; ?></td>

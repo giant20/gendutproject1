@@ -53,3 +53,21 @@
 <div id="depan_bawah"></div>
 
 </div>		
+
+<div id="elearning">
+<div id="elearning_banner"><img src="<?php echo base_url().'assets/images/r.gif' ?>"><span class="elearning_banner">E-Learning</span></div>
+<div id="elearning_isi">isi</div>
+<div id="elearning_footer"></div>
+
+
+
+
+</div>
+
+<div id="research">
+<div id="elearning_banner"><img src="<?php echo base_url().'assets/images/e.gif' ?>"><span class="research_banner">Research</span></div>
+<div id="research_isi">isi</div>
+<div id="research_footer"></div>
+
+
+</div>
