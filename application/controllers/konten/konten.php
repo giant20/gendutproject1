@@ -17,6 +17,8 @@ class Konten extends CI_Controller {
 			$data['copy'] = 'Copyright &copy; 2011 by genduty.blogspot.com. All Rights Reserved.';
 			$data['link_copy'] = 'www.genduty.blogspot.com';
 			$data['query2'] = $this->Konten_model->getKonten('info',FALSE,$id_konten);
+			$data['query4'] = $this->Konten_model->getKonten('berita_it',FALSE);
+			$data['query5'] = $this->Konten_model->getKonten('kabar_it',FALSE);
 			//$data['title2'] = $query2->title;
 			$data['row']=$this->Konten_model->getKonten(FALSE,$id_konten,FALSE,FALSE);
 			$data['status'] = $this->session->userdata('status');
@@ -28,7 +30,7 @@ class Konten extends CI_Controller {
 			
 							$data['username'] = $this->session->userdata('username');
 							//menampilkan user
-								
+								$data['navigasi'] = 'navigasi_user';
 								$data['slide_view'] = "mhs/user";
 								$data['main_view'] = 'detail_info';
 								$this->load->view('index',$data);
@@ -36,6 +38,7 @@ class Konten extends CI_Controller {
 						}
 						else {
 						//menampilkan halaman login
+						$data['navigasi'] = 'navigasi';
 						$data['slide_view'] = "mhs/login.php";
 						$data['main_view'] = 'detail_info';
 						$this->load->view('index',$data);
@@ -55,6 +58,8 @@ class Konten extends CI_Controller {
 			$data['copy'] = 'Copyright &copy; 2011 by genduty.blogspot.com. All Rights Reserved.';
 			$data['link_copy'] = 'www.genduty.blogspot.com';
 			$data['query2'] = $this->Konten_model->getKonten('info',FALSE,$id_konten);
+			$data['query4'] = $this->Konten_model->getKonten('berita_it',FALSE);
+			$data['query5'] = $this->Konten_model->getKonten('kabar_it',FALSE);
 			//$data['title2'] = $query2->title;
 			$data['row']=$this->Konten_model->getKonten(FALSE,$id_konten,FALSE,FALSE);
 			$data['status'] = $this->session->userdata('status');
@@ -66,7 +71,7 @@ class Konten extends CI_Controller {
 			
 							$data['username'] = $this->session->userdata('username');
 							//menampilkan user
-								
+								$data['navigasi'] = 'navigasi_user';
 								$data['slide_view'] = "mhs/user";
 								$data['main_view'] = 'konten/detail_berita';
 								$this->load->view('index',$data);
@@ -74,6 +79,7 @@ class Konten extends CI_Controller {
 						}
 						else {
 						//menampilkan halaman login
+						$data['navigasi'] = 'navigasi';
 						$data['slide_view'] = "mhs/login.php";
 						$data['main_view'] = 'konten/detail_berita';
 						$this->load->view('index',$data);

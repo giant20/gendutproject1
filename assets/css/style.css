@@ -48,17 +48,12 @@ body {
 	margin-left: 5px;
 }
 #layout #conten #conten_left{
-	background-color: #0099FF;
 	float: left;
 	width: 224px;
-	margin-left: 5px;
-	color: #FFFFFF;
-	font-size: 12px;
+	margin-left: 0px;
 }
 
- #conten_left a {
-	color: #FFFFFF;
-}
+ 
 #layout #footer{
 	float: left;
 	width: 1000px;
@@ -120,6 +115,7 @@ body {
     -moz-border-radius: 5px;  
 	border-radius: 5px; 
 }
+/*menu kiri*/
 
 #info {
 
@@ -143,14 +139,91 @@ body {
 	background-image: url(../images/m_t.gif);
 	width: 230px;
 	margin-top: -17px;
+
 }
 #info #info_ba{
 	background-image: url(../images/m_b.gif);
 	width: 230px;
 	height: 30px;
 	background-repeat: no-repeat;
-	margin-top: -15px;
+	margin-top: -13px;
 }
+
+#info #info_gbr {
+	
+	width: 200px;
+	
+	margin-left: 6.5%;
+	margin-top: 11px;
+}
+.info_gbr {
+	padding: 5px;
+}
+.kalender{
+	font-size: 10px;
+	color: #0000FF;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+#info ul{
+	position: relative;
+	right: 10px;
+}
+#info li{
+	list-style-type: none;
+	list-style-position: outside;
+	list-style-image: url(../images/5.png);
+}
+
+
+
+#award {
+
+	float: left;
+	width: 225px;
+	margin-left: 5px;
+}
+
+#award #award_atas{
+	background-image: url(../images/m_a.gif);
+	height: 29px;
+	width: 230px;
+	padding-left: 34%;
+	background-repeat: no-repeat;
+	font-size: 14px;
+	padding-top: 5px;
+	color: #9933FF;
+}
+
+#award #award_isi{
+	background-image: url(../images/m_t.gif);
+	width: 230px;
+	margin-top: -17px;
+
+}
+#award #award_ba{
+	background-image: url(../images/m_b.gif);
+	width: 230px;
+	height: 30px;
+	background-repeat: no-repeat;
+	margin-top: 0px;
+}
+
+#award #award_gbr {
+	
+	width: 200px;
+	
+	margin-left: 6.5%;
+	margin-top: 11px;
+}
+.award_gbr {
+	padding: 5px;
+}
+
+
+
+/*menu utama */
 
 #depan {
 	float: left;
@@ -191,14 +264,27 @@ body {
 
 .depan_isi {
 	margin-left: 5px;
-	
 	width: 475px;
+	margin-top: -15px;
 }
-
+.nama{
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	border-bottom-width: thin;
+	border-bottom-style: dashed;
+	border-bottom-color: #FFFFFF;
+	padding: 2px;
+}
+.out{
+	padding: 5px;
+	margin-left: 73%;
+}
 #depan_bawah {
 	background-image: url(../images/menu_berita/3_04.gif);
 	height: 30px;
 	width: 488px;
+
 }
 .lg_banner {
 	font-size: 13px;
@@ -206,14 +292,90 @@ body {
 	border-bottom-width: thin;
 	border-bottom-style: dotted;
 	border-bottom-color: #FFFFFF;
+	color: #FFFFFF;
 }
 
 .lg_login {
+	font-size: 12px;
+	color: #FFFFFF;
+	font-weight: bolder;
+}
 
-font-size: 12px;
+/*=========menu kanan============*/
+#user{
+	background-color: #993366;
+	float: left;
+	width: 224px;
+	margin-left: 5px;
+	color: #FFFFFF;
+	font-size: 12px;
+	background: #628cd1;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	margin-top: 10px;
+	position: relative;
+	top: -10px;
 }
 
 
+#kabar {
+
+	float: left;
+	width: 225px;
+	margin-left: 5px;
+}
+
+#kabar #kabar_atas{
+	background-image: url(../images/m_a.gif);
+	height: 29px;
+	width: 230px;
+	padding-left: 34%;
+	background-repeat: no-repeat;
+	font-size: 14px;
+	padding-top: 5px;
+	color: #9933FF;
+}
+
+#kabar #kabar_isi{
+	background-image: url(../images/m_t.gif);
+	width: 230px;
+	margin-top: -17px;
+
+}
+#kabar #kabar_ba{
+	background-image: url(../images/m_b.gif);
+	width: 230px;
+	height: 30px;
+	background-repeat: no-repeat;
+	margin-top: -13px;
+}
+
+#kabar #kabar_gbr {
+	
+	width: 200px;
+	
+	margin-left: 6.5%;
+	margin-top: 11px;
+}
+.kabar_gbr {
+	padding: 5px;
+}
+.kalender{
+	font-size: 10px;
+	color: #0000FF;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+#kabar ul{
+	position: relative;
+	right: 25px;
+}
+#kabar li{
+	list-style-type: none;
+
+}
 
 
 /*---berita---*/
@@ -261,8 +423,13 @@ a, a:visited								{ color: #729dff; text-decoration: none; }
 	margin-right: 2px;
 	
 }
-#movers-row									{ margin: -43px 0 0 62px; }
-#movers-row div								{ width: 20%; float: left; }
+#movers-row									{
+	margin-top: -43px;
+	margin-right: 0;
+	margin-bottom: 0;
+	margin-left: 23px;
+}
+#movers-row div								{ width: 16%; float: left; }
 #movers-row div a.cross-link 				{ float: right; }
 .photo-meta-data							{ background: url(../images/transpBlack.png); padding: 10px; height: 70px; 
 											  margin-top: -90px; position: relative; z-index: 9999; color: white; }
@@ -272,8 +439,8 @@ a, a:visited								{ color: #729dff; text-decoration: none; }
 											  position: relative; padding-top: 15px; z-index: 9999; }
 .active-thumb 								{ background: transparent url(../images/icon-uparrowsmallwhite.png) top center no-repeat; }
 .menu_berita{
-	margin-top: -18%;
-	margin-right: 23px;
+	margin-top: -17%;
+
 }
 .img {
 	background-color: #FF99FF;
