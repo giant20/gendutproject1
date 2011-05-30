@@ -56,10 +56,12 @@
 <body>
 <div id="layout">
 <div id="header">
-<div id="navigasi"><?php $this->load->view('navigasi')?></div></div>
+<div id="navigasi"><?php $this->load->view($navigasi)?></div></div>
 <div id="conten">
 <div id="conten_right">
-<?php $this->view('nav_right')?>
+<?php $this->view('menu_kiri/nav_right')?>
+<?php $this->view('menu_kiri/nav_right_calender')?>
+<?php $this->view('menu_kiri/nav_right_awards')?>
 
 
 </div>
@@ -67,7 +69,9 @@
 <?php $this->load->view($main_view)?>
 </div>
 <div id="conten_left">
-<?php $this->load->view($slide_view)?>	
+<?php $this->load->view($slide_view)?>
+<?php $this->view('menu_kanan/berita_it')?>
+<?php $this->view('menu_kanan/kabar_it')?>	
 </div>
 </div>
 <div id="footer">

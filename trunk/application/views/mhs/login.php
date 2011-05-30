@@ -1,3 +1,4 @@
+<div id="user">
 <?php echo $this->session->flashdata('message_type');?>
 <form action="<?php echo site_url()?>home/login_process" method="post" name="loginForm" id="loginForm"><table width="224" border="0">
   <tr>
@@ -20,4 +21,4 @@
     <td>&nbsp;</td>
     <td><input type="submit" name="submit" value="Login" /></td>
   </tr>
-</table></form>
+</table></form></div>
