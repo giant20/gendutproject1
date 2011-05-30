@@ -163,7 +163,9 @@ body {
 	font-size: 10px;
 	color: #0000FF;
 	margin-top: 10px;
-	margin-left: 20px;
+
+	position: relative;
+	left: -13px;
 }
 
 #info ul{
@@ -301,6 +303,75 @@ body {
 	font-weight: bolder;
 }
 
+#elearning{
+	float: left;
+	width: 234px;
+	margin-top: 10px;
+	margin-left: 5px;
+}
+#elearning_banner{
+	float: left;
+	width: 234px;
+	background-image: url(../images/b_01.gif);
+	background-repeat: no-repeat;
+	height: 62px;
+}
+.elearning_banner{
+	font-size: 16px;
+	color: #0000FF;
+	position: relative;
+	left: 10px;
+	top: -20px;
+}
+
+#elearning_isi{
+	float: left;
+	width: 234px;
+	background-image: url(../images/b_02.gif);	
+}
+#elearning_footer{
+	float: left;
+	width: 234px;
+	background-image: url(../images/b_03.gif);
+	background-repeat: no-repeat;
+	height: 35px;	
+}
+
+
+#research{
+	float: left;
+	width: 234px;
+	margin-top: 10px;
+	margin-left: 19px;
+}
+#research_banner{
+	float: left;
+	width: 234px;
+	background-image: url(../images/b_01.gif);
+	background-repeat: no-repeat;
+	height: 62px;
+}
+.research_banner{
+	font-size: 16px;
+	color: #0000FF;
+	position: relative;
+	left: 10px;
+	top: -19px;
+}
+#research_isi{
+	float: left;
+	width: 234px;
+	background-image: url(../images/b_02.gif);	
+}
+#research_footer{
+	float: left;
+	width: 234px;
+	background-image: url(../images/b_03.gif);
+	background-repeat: no-repeat;
+	height: 35px;	
+}
+
+
 /*=========menu kanan============*/
 #user{
 	background-color: #993366;
@@ -317,7 +388,13 @@ body {
 	position: relative;
 	top: -10px;
 }
-
+#user a {
+	color: #FFFFFF;
+	text-decoration: none;
+	border-bottom-width: thin;
+	border-bottom-style: dashed;
+	border-bottom-color: #FFFFFF;
+}
 
 #kabar {
 
@@ -374,7 +451,7 @@ body {
 }
 #kabar li{
 	list-style-type: none;
-
+	padding: 2px;
 }
 
 
@@ -481,4 +558,27 @@ img {
 
 	padding-left: 1.5%;
 	top: 10px;
+}
+
+
+/*=========Table==========*/
+
+table{
+	font-size:90%;
+
+}
+
+table th{
+	font-weight:bold;
+	background:#3067c1;
+	color:#fff;
+}
+
+table td, table th {
+	text-align:left;
+	padding:4px 10px 4px 10px;
+}
+
+.zebra {
+	background:#EFF5FF;
 }
